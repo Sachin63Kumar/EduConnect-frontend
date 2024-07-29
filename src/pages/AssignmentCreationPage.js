@@ -124,12 +124,29 @@ const AssignmentCreationPage = () => {
   const [file, setFile] = useState(null);
   const [deadline, setDeadline] = useState("");
   const [marks, setMarks] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    // setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    if (selectedFile && selectedFile.size > 1 * 1024 * 1024) {
+      // 1 MB size limit
+      setErrorMessage("File size should not exceed 1 MB");
+      setFile(null);
+    } else {
+      setErrorMessage("");
+      setFile(selectedFile);
+    }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!file) {
+      setErrorMessage("File is required and should be less than 1 MB");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("courseId", courseId);
     formData.append("title", title);
@@ -149,8 +166,10 @@ const AssignmentCreationPage = () => {
         }
       );
       navigate(`/faculty/courses/${courseId}/assignments`);
+      setErrorMessage("");
     } catch (error) {
       console.error("Error creating assignment", error);
+      setErrorMessage("Error creating assignment. Please try again.");
     }
   };
 
@@ -186,8 +205,10 @@ const AssignmentCreationPage = () => {
             <input
               type="file"
               onChange={handleFileChange}
+              required
               className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm"
             />
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           </div>
           <div>
             <label className="block text-sm font-medium">Deadline Date</label>

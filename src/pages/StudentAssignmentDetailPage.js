@@ -109,6 +109,7 @@ const StudentAssignmentDetailPage = () => {
   const { assignmentId } = useParams();
   const [assignment, setAssignment] = useState(null);
   const [file, setFile] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   const token = localStorage.getItem("token");
   const userId = JSON.parse(atob(token.split(".")[1])).id;
 
@@ -128,10 +129,25 @@ const StudentAssignmentDetailPage = () => {
   }, [assignmentId]);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    // setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    if (selectedFile && selectedFile.size > 1 * 1024 * 1024) {
+      // 1 MB size limit
+      setErrorMessage("File size should not exceed 1 MB");
+      setFile(null);
+    } else {
+      setErrorMessage("");
+      setFile(selectedFile);
+    }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!file) {
+      setErrorMessage("File is required and should be less than 1 MB");
+      return;
+    }
     const formData = new FormData();
     formData.append("assignmentId", assignmentId);
     formData.append("studentId", userId);
@@ -148,8 +164,10 @@ const StudentAssignmentDetailPage = () => {
         }
       );
       alert("Assignment submitted successfully");
+      setErrorMessage("");
     } catch (error) {
       console.error("Error submitting assignment", error);
+      setErrorMessage("Error submitting assignment. Please try again.");
     }
   };
 
@@ -183,8 +201,10 @@ const StudentAssignmentDetailPage = () => {
               <input
                 type="file"
                 onChange={handleFileChange}
+                required
                 className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm"
               />
+              {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             </div>
             <button
               onClick={handleSubmit}

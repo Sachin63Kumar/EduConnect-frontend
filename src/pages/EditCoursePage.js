@@ -1,8 +1,6 @@
-// EditCoursePage.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-// import Sidebar from "../components/Sidebar";
 
 function SidebarButton({ name, iconSrc, routePath }) {
   const navigate = useNavigate();
@@ -47,21 +45,6 @@ function Sidebar() {
         iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/8da3c77c20ca8edb379ac77c90f43500cb9c0bd4f5bfb3317306543c8f812a6a?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
         routePath="/faculty-courses"
       />
-      {/* <SidebarButton
-        name="Students"
-        iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/c4a1f3291bece5ebfc6474faa3dc4ca7e06561cf02e15a98a512e73414db59c2?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
-        routePath="/faculty-dashboard"
-      />
-      <SidebarButton
-        name="Grades"
-        iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/10d517d6cc349e6cd35e42035dd2255f717ed6c928e6b273743758bed150e984?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
-        routePath="/faculty-dashboard"
-      />
-      <SidebarButton
-        name="Attendance"
-        iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/081a4f1ce05aacad55cf56e381164e285fca5f8a0236f7797f2c01ee95a57116?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
-        routePath="/faculty-dashboard"
-      /> */}
       <SidebarButton
         name="Time Table Management"
         iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/081a4f1ce05aacad55cf56e381164e285fca5f8a0236f7797f2c01ee95a57116?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
@@ -181,102 +164,3 @@ const EditCoursePage = () => {
 };
 
 export default EditCoursePage;
-
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-// import { useNavigate, useParams } from "react-router-dom";
-
-// const EditCoursePage = () => {
-//   const { courseId } = useParams();
-//   const [courseName, setCourseName] = useState("");
-//   const [facultyName, setFacultyName] = useState("");
-//   const [numOfStudentEnrolled, setNumOfStudentEnrolled] = useState(0);
-//   const [status, setStatus] = useState("in progress"); // Add status state
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const fetchCourse = async () => {
-//       try {
-//         const response = await axios.get(
-//           `http://localhost:5000/api/courses/${courseId}`,
-//           {
-//             headers: {
-//               Authorization: `Bearer ${localStorage.getItem("token")}`,
-//             },
-//           }
-//         );
-//         const course = response.data;
-//         setCourseName(course.courseName);
-//         setFacultyName(course.facultyName);
-//         setNumOfStudentEnrolled(course.numOfStudentEnrolled);
-//         setStatus(course.status);
-//       } catch (error) {
-//         console.error("Error fetching course:", error);
-//       }
-//     };
-
-//     fetchCourse();
-//   }, [courseId]);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     try {
-//       await axios.put(
-//         `http://localhost:5000/api/courses/${courseId}`,
-//         { courseName, facultyName, numOfStudentEnrolled, status },
-//         {
-//           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-//         }
-//       );
-//       navigate("/faculty-courses");
-//     } catch (error) {
-//       console.error("Error updating course:", error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Edit Course</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label>Course Name</label>
-//           <input
-//             type="text"
-//             value={courseName}
-//             onChange={(e) => setCourseName(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label>Faculty Name</label>
-//           <input
-//             type="text"
-//             value={facultyName}
-//             onChange={(e) => setFacultyName(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label>Number of Students Enrolled</label>
-//           <input
-//             type="number"
-//             value={numOfStudentEnrolled}
-//             onChange={(e) => setNumOfStudentEnrolled(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label>Status</label>
-//           <select value={status} onChange={(e) => setStatus(e.target.value)}>
-//             <option value="in progress">In Progress</option>
-//             <option value="completed">Completed</option>
-//           </select>
-//         </div>
-//         <button type="submit">Update</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default EditCoursePage;

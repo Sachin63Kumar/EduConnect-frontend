@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
@@ -63,19 +62,10 @@ const App = () => {
           path="/faculty/courses/:courseId/create-assignment"
           element={<AssignmentCreationPage />}
         />
-        {/* <Route
-          path="/courses/:courseId/assignments/:assignmentId"
-          element={<AssignmentDetailPage />}
-        /> */}
         <Route
           path="/student/courses/:courseId/assignments/:assignmentId/details"
           element={<StudentAssignmentDetailPage />}
         />
-        {/* <Route
-          path="/assignments/:assignmentId"
-          element={<AssignmentDetailPage />}
-        /> */}
-
         <Route
           path="/faculty/courses/:courseId/assignments/:assignmentId/submissions"
           element={<SubmissionsPage />}
@@ -128,99 +118,3 @@ const App = () => {
 };
 
 export default App;
-
-// import React from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import LandingPage from "./pages/LandingPage";
-// import LoginPage from "./pages/LoginPage";
-// import SignupPage from "./pages/SignupPage";
-// import FacultyDashboard from "./pages/FacultyDashboard"; // Ensure this component exists
-// import StudentDashboard from "./pages/StudentDashboard"; // Ensure this component exists
-// import StudentCoursesPage from "./pages/StudentCoursesPage";
-// import FacultyCoursesPage from "./pages/FacultyCoursesPage";
-// import CourseDetailPage from "./pages/CourseDetailPage";
-// import AssignmentCreationPage from "./pages/AssignmentCreationPage"; // Ensure this component exists
-// import AssignmentDetailPage from "./pages/AssignmentDetailPage"; // Ensure this component exists
-// import CreateCoursePage from "./pages/CreateCoursePage";
-// import EditCoursePage from "./pages/EditCoursePage";
-// import AssignmentListPage from "./pages/AssignmentListPage";
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<LandingPage />} />
-//         <Route path="/login" element={<LoginPage />} />
-//         <Route path="/signup" element={<SignupPage />} />
-//         <Route path="/faculty-dashboard" element={<FacultyDashboard />} />
-//         <Route path="/student-dashboard" element={<StudentDashboard />} />
-//         <Route path="/student-courses" element={<StudentCoursesPage />} />
-//         <Route path="/faculty-courses" element={<FacultyCoursesPage />} />
-//         <Route path="/course/:courseId" element={<CourseDetailPage />} />
-//         {/* <Route path="/courses/:id/create" element={<CreateCoursePage />} /> */}
-//         <Route path="/create-course" element={<CreateCoursePage />} />
-//         {/* <Route path="/courses/:id/edit" element={<EditCoursePage />} /> */}
-//         <Route path="/edit-course/:courseId" element={<EditCoursePage />} />
-//         <Route
-//           path="/courses/:courseId/assignments"
-//           element={<AssignmentListPage />}
-//         />
-//         <Route
-//           path="/courses/:courseId/assignments/create"
-//           element={<AssignmentCreationPage />}
-//         />
-//         <Route
-//           path="/assignments/:assignmentId"
-//           element={<AssignmentDetailPage />}
-//         />
-//         {/* <Route
-//           path="/courses/:id/assignments/create"
-//           element={<AssignmentCreationPage />}
-//         />
-//         <Route
-//           path="/courses/:id/assignments/:assignmentId"
-//           element={<AssignmentDetailPage />}
-//         /> */}
-//         {/* Add more routes as needed */}
-//       </Routes>
-//     </Router>
-//   );
-// };
-
-// export default App;
-
-// import React from "react";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import LandingPage from "./pages/LandingPage";
-// import FacultyDashboard from "./pages/FacultyDashboard";
-// import StudentDashboard from "./pages/StudentDashboard";
-// import CourseDetailPage from "./pages/CourseDetailPage";
-// import AssignmentCreationPage from "./pages/AssignmentCreationPage";
-// import AssignmentDetailPage from "./pages/AssignmentDetailPage";
-// import LoginPage from "./pages/LoginPage";
-// import SignupPage from "./pages/SignupPage";
-
-// const App = () => {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<LandingPage />} />
-//         <Route path="/login" element={<LoginPage />} />
-//         <Route path="/signup" element={<SignupPage />} />
-//         <Route path="/faculty-dashboard" element={<FacultyDashboard />} />
-//         <Route path="/student-dashboard" element={<StudentDashboard />} />
-//         <Route path="/course/:id" element={<CourseDetailPage />} />
-//         <Route
-//           path="/course/:id/create-assignment"
-//           element={<AssignmentCreationPage />}
-//         />
-//         <Route
-//           path="/course/:id/assignment/:assignmentId"
-//           element={<AssignmentDetailPage />}
-//         />
-//       </Routes>
-//     </Router>
-//   );
-// };
-
-// export default App;

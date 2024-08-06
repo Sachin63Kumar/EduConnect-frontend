@@ -44,7 +44,7 @@ const FacultyCoursesPage = () => {
     }
 
     try {
-      console.log(`Attempting to delete course with ID: ${courseId}`); // Debugging line
+      console.log(`Attempting to delete course with ID: ${courseId}`);
       await axios.delete(
         `${process.env.REACT_APP_API_BASE_URL}/courses/${courseId}`,
         {
@@ -53,7 +53,7 @@ const FacultyCoursesPage = () => {
       );
       setCourses(courses.filter((course) => course._id !== courseId));
     } catch (error) {
-      console.error("Error deleting course", error); // Detailed error logging
+      console.error("Error deleting course", error);
       setError("Error deleting course");
     }
   };

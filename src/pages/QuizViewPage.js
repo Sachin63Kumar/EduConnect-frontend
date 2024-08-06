@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import FacultySidebar from "../components/Sidebar"; // Adjust the import path as needed
+import FacultySidebar from "../components/Sidebar";
 
 const QuizViewPage = () => {
   const { quizId } = useParams();
@@ -56,52 +56,3 @@ const QuizViewPage = () => {
 };
 
 export default QuizViewPage;
-
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
-
-// const QuizViewPage = () => {
-//   const { quizId } = useParams();
-//   const [quiz, setQuiz] = useState(null);
-
-//   useEffect(() => {
-//     const fetchQuiz = async () => {
-//       try {
-//         const response = await axios.get(
-//           `http://localhost:5000/api/quizzes/${quizId}`
-//         );
-//         setQuiz(response.data);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-//     fetchQuiz();
-//   }, [quizId]);
-
-//   if (!quiz) return <div>Loading...</div>;
-
-//   return (
-//     <div className="max-w-4xl mx-auto p-6">
-//       <h1 className="text-2xl font-bold mb-6">{quiz.title}</h1>
-//       <p className="mb-6">{quiz.instructions}</p>
-//       <p className="mb-6">Duration: {quiz.timeDuration} minutes</p>
-//       {quiz.questions.map((q, qIndex) => (
-//         <div key={qIndex} className="mb-4 p-4 border rounded bg-gray-50">
-//           <h2 className="text-lg font-bold mb-2">Question {qIndex + 1}</h2>
-//           <p className="mb-2">{q.questionText}</p>
-//           {q.questionType === "MCQ" && (
-//             <div>
-//               {q.options.map((option, oIndex) => (
-//                 <p key={oIndex}>{option}</p>
-//               ))}
-//             </div>
-//           )}
-//           <p>Points: {q.points}</p>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default QuizViewPage;

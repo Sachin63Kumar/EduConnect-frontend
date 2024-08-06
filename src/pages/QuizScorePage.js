@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import FacultySidebar from "../components/Sidebar"; // Adjust the import path as needed
+import FacultySidebar from "../components/Sidebar";
 
 const QuizScorePage = () => {
   const { quizId } = useParams();
@@ -82,109 +82,3 @@ const QuizScorePage = () => {
 };
 
 export default QuizScorePage;
-
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
-// import FacultySidebar from "../components/Sidebar"; // Adjust the import path as needed
-
-// const QuizScorePage = () => {
-//   const { quizId } = useParams();
-//   const [scores, setScores] = useState([]);
-
-//   useEffect(() => {
-//     const fetchScores = async () => {
-//       try {
-//         const response = await axios.get(
-//           `http://localhost:5000/api/quizzes/scores/${quizId}`
-//         );
-//         setScores(response.data);
-//       } catch (error) {
-//         console.error("Error fetching scores:", error);
-//       }
-//     };
-//     fetchScores();
-//   }, [quizId]);
-
-//   return (
-//     <div className="flex flex-col lg:flex-row min-h-screen">
-//       <FacultySidebar />
-//       <div className="flex-1 p-6">
-//         <h1 className="text-2xl font-bold mb-6">Quiz Scores</h1>
-//         <div className="overflow-x-auto">
-//           <table className="min-w-full bg-white border">
-//             <thead>
-//               <tr>
-//                 <th className="py-2 px-4 border-b">Name</th>
-//                 <th className="py-2 px-4 border-b">Email</th>
-//                 <th className="py-2 px-4 border-b">Score</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {scores.map((score) => (
-//                 <tr key={score._id}>
-//                   <td className="py-2 px-4 border">{score.studentId.name}</td>
-
-//                   <td className="py-2 px-4 border">{score.studentId.email}</td>
-
-//                   <td className="py-2 px-4 border">{score.score}</td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default QuizScorePage;
-
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
-
-// const QuizScorePage = () => {
-//   const { quizId } = useParams();
-//   const [scores, setScores] = useState([]);
-
-//   useEffect(() => {
-//     const fetchScores = async () => {
-//       try {
-//         const response = await axios.get(
-//           `http://localhost:5000/api/quizzes/scores/${quizId}`
-//         );
-//         setScores(response.data);
-//       } catch (error) {
-//         console.error("Error fetching scores:", error);
-//       }
-//     };
-//     fetchScores();
-//   }, [quizId]);
-
-//   return (
-//     <div className="max-w-4xl mx-auto p-6">
-//       <h1 className="text-2xl font-bold mb-6">Student Scores</h1>
-//       <table className="min-w-full bg-white border">
-//         <thead>
-//           <tr>
-//             <th className="py-2 px-4 border">Name</th>
-//             <th className="py-2 px-4 border">Email</th>
-//             <th className="py-2 px-4 border">Score</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {scores.map((score) => (
-//             <tr key={score._id}>
-//               <td className="py-2 px-4 border">{score.studentId.name}</td>
-//               <td className="py-2 px-4 border">{score.studentId.email}</td>
-//               <td className="py-2 px-4 border">{score.score}</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// export default QuizScorePage;

@@ -16,7 +16,7 @@ const StudentDashboardPage = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("token")}`, // Make sure the token is correct
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           }
         );
@@ -66,109 +66,3 @@ const StudentDashboardPage = () => {
 };
 
 export default StudentDashboardPage;
-
-// import React from "react";
-// import { Outlet } from "react-router-dom";
-// import Sidebar from "../components/StudentSidebar";
-
-// const StudentDashboardPage = () => {
-//   return (
-//     <div className="flex min-h-screen bg-gray-100">
-//       <Sidebar />
-//       <main className="flex-1 p-6">
-//         <Outlet />
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default StudentDashboardPage;
-
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-
-// const StudentDashboardPage = () => {
-//   const [courses, setCourses] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     const fetchCourses = async () => {
-//       try {
-//         const token = localStorage.getItem("token");
-//         const { data } = await axios.get("/api/students/courses", {
-//           headers: {
-//             Authorization: `Bearer ${token}`,
-//           },
-//         });
-//         setCourses(data);
-//         setLoading(false);
-//       } catch (error) {
-//         console.error("Error fetching courses", error);
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchCourses();
-//   }, []);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div className="student-dashboard">
-//       <h1>Your Courses</h1>
-//       <div className="courses-list">
-//         {courses.map((course) => (
-//           <div key={course._id} className="course-card">
-//             <h2>{course.courseName}</h2>
-//             <p>Instructor: {course.facultyName}</p>
-//             <p>Enrolled Students: {course.numOfStudentEnrolled}</p>
-//             <a href={`/courses/${course._id}`}>View Course</a>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default StudentDashboardPage;
-
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// function StudentDashboard() {
-//   return (
-//     <div className="flex min-h-screen bg-gray-100">
-//       <Sidebar />
-//       <main className="flex-1 p-6">
-//         <h1 className="text-2xl font-bold mb-6">Student Dashboard</h1>
-//         <Link to="/student-courses" className="block mb-4">
-//           Courses
-//         </Link>
-//         {/* Add more links and content as needed */}
-//       </main>
-//     </div>
-//   );
-// }
-
-// function Sidebar() {
-//   return (
-//     <div className="w-64 bg-white shadow-lg">
-//       <nav className="p-6">
-//         <Link to="/student-dashboard" className="block mb-4">
-//           Home
-//         </Link>
-//         <Link to="/student-courses" className="block mb-4">
-//           Courses
-//         </Link>
-//         <Link to="/announcements" className="block mb-4">
-//           Announcements
-//         </Link>
-//         {/* Add more links as needed */}
-//       </nav>
-//     </div>
-//   );
-// }
-
-// export default StudentDashboard;

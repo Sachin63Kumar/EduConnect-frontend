@@ -44,26 +44,11 @@ function Sidebar() {
         iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/8da3c77c20ca8edb379ac77c90f43500cb9c0bd4f5bfb3317306543c8f812a6a?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
         routePath="/faculty-courses"
       />
-      {/* <SidebarButton
-        name="Students"
-        iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/c4a1f3291bece5ebfc6474faa3dc4ca7e06561cf02e15a98a512e73414db59c2?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
-        routePath="/faculty-dashboard"
-      />
-      <SidebarButton
-        name="Grades"
-        iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/10d517d6cc349e6cd35e42035dd2255f717ed6c928e6b273743758bed150e984?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
-        routePath="/faculty-dashboard"
-      /> */}
       <SidebarButton
         name="Time Table Management"
         iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/081a4f1ce05aacad55cf56e381164e285fca5f8a0236f7797f2c01ee95a57116?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
         routePath="/timetable"
       />
-      {/* <SidebarButton
-        name="Announcements"
-        iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/d8304373172589d1d7453db3f022798615bb70c4560b0eeb80dfdb28b8a17e96?apiKey=aa5f6ae70acc4a3b920c47bc2c987234&"
-        routePath="/announcements"
-      /> */}
       <NewCourseButton />
     </div>
   );

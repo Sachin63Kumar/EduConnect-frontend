@@ -12,7 +12,6 @@ const AddResourcePage = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleFileChange = (e) => {
-    // setFile(e.target.files[0]);
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.size > 1 * 1024 * 1024) {
       // 1 MB size limit
